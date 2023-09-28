@@ -28,11 +28,11 @@ function Country({countryArray}) {
                 }
               
               return (
-                <div key={index} className='m-5 w-[400px] h-[584px] shadow-sm rounded-md overflow-hidden bg-white country-box'>
+                <div key={index} className='m-5 w-[400px] h-full shadow-sm rounded-md overflow-hidden bg-white country-box'>
                   
-                  <div className='flex flex-col justify-evenly items-center h-[40%] space-y-8 p-2'>
+                  <div className='flex flex-col justify-evenly items-center space-y-8 p-2'>
                       <img src={flag} alt={flagAlt} className='w-[240px] h-[143px] rounded-md shadow-md object-cover mt-6' />
-                      <p className='w-[270px] h-[143px] font-bold text-orange-400 uppercase text-2xl text-center'>{countryName}</p>
+                      <p className='w-[270px]  font-bold text-orange-400 uppercase text-2xl text-center'>{countryName}</p>
                   </div>
 
                   <div className='px-8 text-2xl space-y-8'>
