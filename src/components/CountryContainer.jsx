@@ -5,6 +5,7 @@ import PageTitle from './PageTitle'
 import SearchBar from './SearchBar'
 import Header from './Header'
 import BarChartCountry from './BarChartCountry'
+import Footer from './Footer'
 
 function CountryContainer() {
 
@@ -83,7 +84,8 @@ function CountryContainer() {
       <PageTitle countryCount={countryCount} filCount={filCount} searchTextStatus={searchTextStatus} />
       <SearchBar fn={handleSearchBarValue} />
       <Country countryArray={filteredCountryArray} />
-      <BarChartCountry/>
+      <BarChartCountry />
+      <Footer/>
     </div>
   )
 }

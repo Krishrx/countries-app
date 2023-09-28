@@ -14,7 +14,7 @@ function BarChartCountry() {
     setGraphState('spoken languages')
   }
   return (
-    <div className='w-full h-full flex flex-col justify-center items-center p-5 shadow-md rounded-md'>
+    <div className='w-full h-full flex flex-col justify-center items-center p-5 rounded-md'>
       <div className='flex gap-4 py-3'>
         <Button btnLabelText={'Population'} customStyle={'bg-orange-400 uppercase font-medium text-white'} fn={handleGraphPop} />
       <Button btnLabelText={'languages'} customStyle={'bg-orange-400 uppercase font-medium text-white'} fn={handleGraphLang}/>

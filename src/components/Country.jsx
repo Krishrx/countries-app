@@ -47,7 +47,7 @@ function Country({countryArray}) {
                   </div>
                   
                   <div className="flex justify-center w-full p-5">
-                      <a href={`https://en.wikipedia.org/wiki/${countryName}`} target="_blank" rel="noopener noreferrer" className="know-btn bg-orange-400 text-white h-fit px-2 py-4 rounded-2xl translate-y-[150%]">Know More</a>
+                      <a href={`https://en.wikipedia.org/wiki/${countryName}`} target="_blank" rel="noopener noreferrer" className="know-btn bg-orange-400 text-white h-fit px-2 py-4 rounded-lg translate-y-[150%]">Know More</a>
                   </div>
 
                   </div>
