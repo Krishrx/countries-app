@@ -16,8 +16,8 @@ function BarChartCountry() {
   return (
     <div className='w-full h-full flex flex-col justify-center items-center p-5 shadow-md rounded-md'>
       <div className='flex gap-4 py-3'>
-        <Button btnLabelText={'Population'} customStyle={'bg-orange-400 uppercase font-medium'} fn={handleGraphPop} />
-      <Button btnLabelText={'languages'} customStyle={'bg-orange-400 uppercase font-medium'} fn={handleGraphLang}/>
+        <Button btnLabelText={'Population'} customStyle={'bg-orange-400 uppercase font-medium text-white'} fn={handleGraphPop} />
+      <Button btnLabelText={'languages'} customStyle={'bg-orange-400 uppercase font-medium text-white'} fn={handleGraphLang}/>
       </div>
       <h1 className='text-2xl font-medium py-3'>10 Most {graph} in the World</h1>
       {graph==='populated countries'?<BarGroup arr={tenHighestPopulation} />:<BarGroupLang arr={languagesInScaleOfHundred}/>}
