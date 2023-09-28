@@ -14,7 +14,7 @@ function BarChartCountry() {
     setGraphState('spoken languages')
   }
   return (
-    <div className='w-full h-full flex flex-col justify-center items-center p-5 shadow-xl rounded-md'>
+    <div className='w-full h-full flex flex-col justify-center items-center p-5 shadow-md rounded-md'>
       <div className='flex gap-4 py-3'>
         <Button btnLabelText={'Population'} customStyle={'bg-orange-400 uppercase font-medium'} fn={handleGraphPop} />
       <Button btnLabelText={'languages'} customStyle={'bg-orange-400 uppercase font-medium'} fn={handleGraphLang}/>
@@ -57,7 +57,7 @@ const BarGroup = ({arr}) => {
   })
 
   return (
-    <div id='CountryBarChart' className='w-full flex flex-col justify-center items-center gap-2 shadow-2xl rounded-lg p-5'>
+    <div id='CountryBarChart' className='w-full flex flex-col justify-center items-center gap-2 shadow-md rounded-lg p-5'>
       {bar}
     </div>
   )
@@ -119,7 +119,7 @@ const BarGroupLang = ({arr}) => {
   })
 
   return (
-    <div id='CountryBarChart' className='w-full flex flex-col justify-center items-center gap-2 shadow-2xl rounded-lg p-5'>
+    <div id='CountryBarChart' className='w-full flex flex-col justify-center items-center gap-2 shadow-md rounded-lg p-5'>
       {bar}
     </div>
   )

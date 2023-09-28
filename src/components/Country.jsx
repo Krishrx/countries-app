@@ -16,7 +16,8 @@ function Country({countryArray}) {
               const langArr = Object.entries(languages).map(([key, val]) => {
                     return val; 
               });
-              const lang = langArr.join(',');
+              const firstThreeLangs = langArr.slice(0, 3);
+              const lang = firstThreeLangs.join(',');
               let currencySymbol = '';
                 for (const currency in arr.currencies) {
                     if (arr.currencies.hasOwnProperty(currency)) {
