@@ -1,0 +1,8 @@
+.country-box {
+    transition: all .2s;
+}
+
+.country-box:hover {
+    transform: scale(1.03);
+    box-shadow: 2px 12px 15px #999;
+}
