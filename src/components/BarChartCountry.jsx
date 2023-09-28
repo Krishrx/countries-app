@@ -31,7 +31,7 @@ function BarChartCountry() {
 function BarTemplate({ country, pop, total }) {
   let percent = calculatePercentage(pop, total);
   return (
-      <div key={country} className="grid grid-cols-4 w-10/12 md:w-6/12 h-full">
+      <div key={country} className="grid grid-cols-4 w-full md:w-6/12 h-full">
 
           <div className=" uppercase">
             {country}
