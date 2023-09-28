@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { Link } from 'react-router-dom';
 
 function Country({countryArray}) {
     
@@ -16,7 +17,7 @@ function Country({countryArray}) {
               const langArr = Object.entries(languages).map(([key, val]) => {
                     return val; 
               });
-              const firstThreeLangs = langArr.slice(0, 3);
+              const firstThreeLangs = langArr.slice(0, 2);
               const lang = firstThreeLangs.join(',');
               let currencySymbol = '';
                 for (const currency in arr.currencies) {
@@ -38,13 +39,17 @@ function Country({countryArray}) {
 
                     <p className='mt-8 font-bold text-slate-800'> Capital: <span className='font-medium text-slate-600'>{capital || '-'}</span></p>
 
-                    <p className='font-bold text-slate-800'> Languages: <span className='font-medium text-slate-600'>{lang}</span></p>
+                    <p className='font-bold text-slate-800'> Languages: <span className='font-medium text-slate-600'>{lang || '-'}</span></p>
 
                     <p className='font-bold text-slate-800'> Population: <span className='font-medium text-slate-600'>{population.toLocaleString()}</span></p>
 
                     <p className='font-bold text-slate-800'> Currency: <span className='font-medium text-slate-600'>{currencySymbol || '-'}</span></p>
                   </div>
                   
+                  <div className="flex justify-center w-full p-5">
+                      <a href={`https://en.wikipedia.org/wiki/${countryName}`} target="_blank" rel="noopener noreferrer" className="know-btn bg-orange-400 text-white h-fit px-2 py-4 rounded-2xl translate-y-[150%]">Know More</a>
+                  </div>
+
                   </div>
                 )
               

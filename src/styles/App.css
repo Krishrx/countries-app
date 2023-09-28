@@ -6,3 +6,11 @@
     transform: scale(1.01);
     box-shadow: 2px 12px 15px #999;
 }
+
+.know-btn{
+    transition: transform .3s ease-in;
+}
+
+.country-box:hover .know-btn{
+    transform: translateY(0);
+}
