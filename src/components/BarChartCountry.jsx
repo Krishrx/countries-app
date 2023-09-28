@@ -14,10 +14,10 @@ function BarChartCountry() {
     setGraphState('spoken languages')
   }
   return (
-    <div className='w-full h-full flex flex-col justify-center items-center p-5 shadow-xl rounded-md'>
+    <div className='w-full h-full flex flex-col justify-center items-center p-5 rounded-md'>
       <div className='flex gap-4 py-3'>
-        <Button btnLabelText={'Population'} customStyle={'bg-orange-400 uppercase font-medium'} fn={handleGraphPop} />
-      <Button btnLabelText={'languages'} customStyle={'bg-orange-400 uppercase font-medium'} fn={handleGraphLang}/>
+        <Button btnLabelText={'Population'} customStyle={'bg-orange-400 uppercase font-medium text-white'} fn={handleGraphPop} />
+      <Button btnLabelText={'languages'} customStyle={'bg-orange-400 uppercase font-medium text-white'} fn={handleGraphLang}/>
       </div>
       <h1 className='text-2xl font-medium py-3'>10 Most {graph} in the World</h1>
       {graph==='populated countries'?<BarGroup arr={tenHighestPopulation} />:<BarGroupLang arr={languagesInScaleOfHundred}/>}
@@ -31,7 +31,7 @@ function BarChartCountry() {
 function BarTemplate({ country, pop, total }) {
   let percent = calculatePercentage(pop, total);
   return (
-      <div key={country} className="grid grid-cols-4 w-10/12 md:w-6/12 h-full">
+      <div key={country} className="grid grid-cols-4 w-full md:w-6/12 h-full">
 
           <div className=" uppercase">
             {country}
@@ -57,7 +57,7 @@ const BarGroup = ({arr}) => {
   })
 
   return (
-    <div id='CountryBarChart' className='w-full flex flex-col justify-center items-center gap-2 shadow-2xl rounded-lg p-5'>
+    <div id='CountryBarChart' className='w-full flex flex-col justify-center items-center gap-2 shadow-md rounded-lg p-5'>
       {bar}
     </div>
   )
@@ -119,7 +119,7 @@ const BarGroupLang = ({arr}) => {
   })
 
   return (
-    <div id='CountryBarChart' className='w-full flex flex-col justify-center items-center gap-2 shadow-2xl rounded-lg p-5'>
+    <div id='CountryBarChart' className='w-full flex flex-col justify-center items-center gap-2 shadow-md rounded-lg p-5'>
       {bar}
     </div>
   )
