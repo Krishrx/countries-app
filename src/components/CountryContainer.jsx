@@ -8,22 +8,34 @@ import BarChartCountry from './BarChartCountry'
 
 function CountryContainer() {
 
-  const [countryArray, setCountry] = useState([]);
+    const [countryArray, setCountry] = useState([]);
 
-  const [searchBarValue, setSearchBarValue] = useState('');
+    const [countryCount, setCountryCount] = useState(0);
+    
+    const [filteredCountryArray, setFilteredCountry] = useState([]);
 
-  const [countryCount, setCountryCount] = useState(countryArray.length);
+    const [filCount, setFilCount] = useState(0);
 
-  useEffect(() => {
-      if(searchBarValue!==''){
-        let filteredArray = filterArrayBasedOnSearchValue(searchBarValue, countryArray);
-        sortCountry(filteredArray);
-        setCountry(filteredArray);
-        setCountryCount(filteredArray.length);
-      }
-      else {
+    const [searchBarValue, setSearchBarValue] = useState('');
+
+    const [searchTextStatus, setSearchStatus] = useState(false);
+
+    useEffect(() => {
         fetchCountry();
-      }
+    }, [])
+    
+    useEffect(() => {
+        if(searchBarValue!==''){
+            let filteredArray = filterArrayBasedOnSearchValue(searchBarValue, countryArray);
+            sortCountry(filteredArray);
+            setFilteredCountry(filteredArray);
+            setFilCount(filteredArray.length);
+            setSearchStatus(true);
+       }
+        else {
+            setFilteredCountry(countryArray);
+            setSearchStatus(false);
+        }
     },[searchBarValue])
 
     const fetchCountry = async() => {
@@ -31,6 +43,7 @@ function CountryContainer() {
         const res = await response.data;
         sortCountry(res);
         setCountry(res);
+        setFilteredCountry(res);
         setCountryCount(res.length);
     }
   
@@ -44,31 +57,32 @@ function CountryContainer() {
   }
 
   const handleSearchBarValue = (e) => {
-    setSearchBarValue(e.target.value);
+       setSearchBarValue(e.target.value);   
   }
 
   const filterArrayBasedOnSearchValue = (value, array) => {
-    let filteredArray;
-  if (value !== '' && value !== undefined) {
-     filteredArray = array.filter(obj => {
-      const capital = obj.capital[0]!==undefined?obj.capital[0]:'';
-      const countryName = obj.name.common!==undefined?obj.name.common:'';
-      return (
-        (capital && capital.toLowerCase().includes(value.toLowerCase())) ||
-        (countryName && countryName.toLowerCase().includes(value.toLowerCase()))
-      );
-    });
+      if (value !== '' && value !== undefined) {
+        let filteredArray;
+        filteredArray = array.filter(obj => {
+        const capital = obj.capital[0]!==undefined?obj.capital[0]:'';
+        const countryName = obj.name.common!==undefined?obj.name.common:'';
+        return (
+            (capital && capital.toLowerCase().includes(value.toLowerCase())) ||
+            (countryName && countryName.toLowerCase().includes(value.toLowerCase()))
+        );
+        });
+        return filteredArray;
     }
-    return filteredArray;
+      return array;
 };
 
 
   return (
     <div className='w-full flex flex-col justify-center items-center'>
       <Header/>
-      <PageTitle countryCount={countryCount}/>
+      <PageTitle countryCount={countryCount} filCount={filCount} searchTextStatus={searchTextStatus} />
       <SearchBar fn={handleSearchBarValue} />
-      <Country countryArray={countryArray} />
+      <Country countryArray={filteredCountryArray} />
       <BarChartCountry/>
     </div>
   )
