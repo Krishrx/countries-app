@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
-
+import { useTheme } from "./ThemeProvider";
 
 function Country({countryArray}) {
-    
+    const { isDark } = useTheme();
   return (
-    <div className=' flex justify-center items-center flex-wrap m-5 gap-x-20 bg-gray-100 w-10/12'>
+    <div className={`flex justify-center items-center flex-wrap m-5 gap-x-20 rounded-md bg-gray-100 w-10/12 ${isDark?'bg-gray-400':''}`}>
 
           {countryArray.map((arr, index) => {
               
@@ -28,26 +28,26 @@ function Country({countryArray}) {
                 }
               
               return (
-                <div key={index} className='m-5 w-[400px] h-full shadow-sm rounded-md overflow-hidden bg-white country-box'>
+                <div key={index} className={`m-5 w-[400px] h-full shadow-sm rounded-md overflow-hidden bg-white country-box ${isDark?'bg-gray-600':''}`}>
                   
                   <div className='flex flex-col justify-evenly items-center space-y-8 p-2'>
                       <img src={flag} alt={flagAlt} className='w-[240px] h-[143px] rounded-md shadow-md object-cover mt-6' />
-                      <p className='w-[270px]  font-bold text-orange-400 uppercase text-2xl text-center'>{countryName}</p>
+                      <p className={`w-[270px]  font-bold text-orange-400 uppercase text-2xl text-center ${isDark?'text-orange-600':''}`}>{countryName}</p>
                   </div>
 
-                  <div className='px-8 text-2xl space-y-8'>
+                  <div className={`px-8 text-2xl space-y-8 `}>
 
-                    <p className='mt-8 font-bold text-slate-800'> Capital: <span className='font-medium text-slate-600'>{capital || '-'}</span></p>
+                    <p className={`mt-8 font-bold text-slate-800 ${isDark?'text-slate-900':''}`}> Capital: <span className={`font-medium text-slate-600 ${isDark?'text-orange-50':''}`}>{capital || '-'}</span></p>
 
-                    <p className='font-bold text-slate-800'> Languages: <span className='font-medium text-slate-600'>{lang || '-'}</span></p>
+                    <p className={`font-bold text-slate-800 ${isDark?'text-slate-900':''}`}> Languages: <span className={`font-medium text-slate-600 ${isDark?'text-orange-50':''}`}>{lang || '-'}</span></p>
 
-                    <p className='font-bold text-slate-800'> Population: <span className='font-medium text-slate-600'>{population.toLocaleString()}</span></p>
+                    <p className={`font-bold text-slate-800 ${isDark?'text-slate-900':''}`}> Population: <span className={`font-medium text-slate-600 ${isDark?'text-orange-50':''}`}>{population.toLocaleString()}</span></p>
 
-                    <p className='font-bold text-slate-800'> Currency: <span className='font-medium text-slate-600'>{currencySymbol || '-'}</span></p>
+                    <p className={`font-bold text-slate-800 ${isDark?'text-slate-900':''}`}> Currency: <span className={`font-medium text-slate-600 ${isDark?'text-orange-50':''}`}>{currencySymbol || '-'}</span></p>
                   </div>
                   
                   <div className="flex justify-center w-full p-5">
-                      <a href={`https://en.wikipedia.org/wiki/${countryName}`} target="_blank" rel="noopener noreferrer" className="know-btn bg-orange-400 text-white h-fit px-2 py-4 rounded-lg translate-y-[150%]">Know More</a>
+                      <a href={`https://en.wikipedia.org/wiki/${countryName}`} target="_blank" rel="noopener noreferrer" className={`know-btn bg-orange-400 text-white h-fit px-2 py-4 rounded-lg translate-y-[150%] ${isDark?'bg-orange-600 font-medium':''}`}>Know More</a>
                   </div>
 
                   </div>

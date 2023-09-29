@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import Button from '../shared/Button';
 import { ArrowUpCircle } from 'lucide-react';
+import { useTheme } from "./ThemeProvider";
 
 function BarChartCountry() {
   const [graph, setGraphState] = useState('populated countries')
@@ -13,13 +14,16 @@ function BarChartCountry() {
   const handleGraphLang = () => {
     setGraphState('spoken languages')
   }
+
+  const { isDark } = useTheme();
+
   return (
     <div className='w-full h-full flex flex-col justify-center items-center p-5 rounded-md'>
       <div className='flex gap-4 py-3'>
-        <Button btnLabelText={'Population'} customStyle={'bg-orange-400 uppercase font-medium text-white'} fn={handleGraphPop} />
-      <Button btnLabelText={'languages'} customStyle={'bg-orange-400 uppercase font-medium text-white'} fn={handleGraphLang}/>
+        <Button btnLabelText={'Population'} customStyle={`bg-orange-400 uppercase font-medium text-white ${isDark?'bg-orange-600':''}`} fn={handleGraphPop} />
+      <Button btnLabelText={'languages'} customStyle={`bg-orange-400 uppercase font-medium text-white ${isDark?'bg-orange-600':''}`} fn={handleGraphLang}/>
       </div>
-      <h1 className='text-2xl font-medium py-3'>10 Most {graph} in the World</h1>
+      <h1 className={`text-2xl font-medium py-3 ${isDark?'text-gray-50':'text-slate-800'}`}>10 Most {graph} in the World</h1>
       {graph==='populated countries'?<BarGroup arr={tenHighestPopulation} />:<BarGroupLang arr={languagesInScaleOfHundred}/>}
       <div className='self-end pt-5'>
         <AnchorLink href='#pageTitle'><ArrowUpCircle size={40} fill='#ea580c' color='white'/></AnchorLink>
@@ -29,19 +33,20 @@ function BarChartCountry() {
 }
 
 function BarTemplate({ country, pop, total }) {
+  const { isDark } = useTheme();
   let percent = calculatePercentage(pop, total);
   return (
       <div key={country} className="grid grid-cols-4 w-full md:w-6/12 h-full">
 
-          <div className=" uppercase">
+          <div className={`uppercase ${isDark?'text-gray-50':'text-slate-800'}`}>
             {country}
           </div>
 
         <div className={`w-full h-full col-span-2`} >
-          <div style={{width:`${percent}%`}} className={`bg-orange-500 h-full rounded-md`}></div>
+          <div style={{width:`${percent}%`}} className={`bg-orange-500 ${isDark?'bg-orange-700':''} h-full rounded-md `}></div>
           </div>
 
-          <div className="pl-2">
+          <div className={`pl-2 ${isDark?'text-gray-50':'text-slate-800'}`}>
             {pop.toLocaleString()}
           </div>
 

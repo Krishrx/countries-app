@@ -6,6 +6,7 @@ import SearchBar from './SearchBar'
 import Header from './Header'
 import BarChartCountry from './BarChartCountry'
 import Footer from './Footer'
+import { useTheme } from './ThemeProvider'
 
 function CountryContainer() {
 
@@ -20,7 +21,9 @@ function CountryContainer() {
     const [searchBarValue, setSearchBarValue] = useState('');
 
     const [searchTextStatus, setSearchStatus] = useState(false);
-
+    
+    const { isDark } = useTheme();
+  
     useEffect(() => {
         fetchCountry();
     }, [])
@@ -79,7 +82,7 @@ function CountryContainer() {
 
 
   return (
-    <div className='w-full flex flex-col justify-center items-center'>
+    <div className={`w-full flex flex-col justify-center items-center ${isDark?'bg-gray-900':''}`}>
       <Header/>
       <PageTitle countryCount={countryCount} filCount={filCount} searchTextStatus={searchTextStatus} />
       <SearchBar fn={handleSearchBarValue} />
