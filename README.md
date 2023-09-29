@@ -14,19 +14,18 @@ You can try out the Countries App [here](https://countries-app-ecru.vercel.app/)
 ## Getting Started
 - To run this app locally, follow these steps:
 - Clone the repository to your local machine:
-- `git clone https://github.com/Krishrx/countries-app.git`
+ `git clone https://github.com/Krishrx/countries-app.git`
 - Navigate to the project directory:
-- `cd countries-app`
+ `cd countries-app`
 - Install the project dependencies:
-- `npm install`
+ `npm install`
 - Start the development server:
-- `npm start`
+ `npm start`
 
 ## Technologies Used
 - React
 - Tailwind CSS
 - Vite
-- REST Countries API
 
 ## Feedback
 I value your feedback! If you have any suggestions or bug reports, please open an issue on this repository. If you want to share your experience, please don't hesitate to contact me. You can reach me directly through the contact information provided on GitHub.
