@@ -4,7 +4,7 @@ function PageTitle({ countryCount, filCount, searchTextStatus }) {
   
   const { isDark } = useTheme();
 
-  const searchResultCount = searchTextStatus ? <p className={`text-2xl font-medium text-orange-400 md:text-3xl italic   ${isDark?'text-orange-600':''}`}>{filCount} satisfied the search criteria. </p> : '';
+  const searchResultCount = searchTextStatus ? <p className={`text-2xl font-medium text-orange-400 md:text-3xl italic   ${isDark?'text-orange-600':''}`}>{filCount} satisfied the search criteria. </p> : <p className="invisible text-2xl font-medium text-orange-400 md:text-3xl italic ">Null</p>;
 
   return (
     <div id='pageTitle' className={`bg-gray-100 w-10/12 text-center p-5 space-y-5 py-8 rounded-md ${isDark?'bg-gray-300':''}`}>
