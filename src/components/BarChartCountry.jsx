@@ -22,7 +22,7 @@ function BarChartCountry() {
       <h1 className='text-2xl font-medium py-3'>10 Most {graph} in the World</h1>
       {graph==='populated countries'?<BarGroup arr={tenHighestPopulation} />:<BarGroupLang arr={languagesInScaleOfHundred}/>}
       <div className='self-end pt-5'>
-        <AnchorLink href='#pageTitle'><ArrowUpCircle size={40} fill='purple' color='white'/></AnchorLink>
+        <AnchorLink href='#pageTitle'><ArrowUpCircle size={40} fill='#ea580c' color='white'/></AnchorLink>
       </div>
     </div>
   );
